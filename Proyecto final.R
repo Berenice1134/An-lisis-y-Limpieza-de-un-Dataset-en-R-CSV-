@@ -78,7 +78,13 @@ datos_filtrados <- datos_a %>% filter(Edad %in% c(25, 30))
 print("Datos filtrados con edades de 25 y 30 años:")
 head(datos_filtrados)
 
-# Visualizacion:histograma
+# convertir Edad a numerico
+datos_a <- datos_a %>%
+  mutate(Edad = as.numeric(Edad))
+
+str(datos_a$Edad)
+
+# Visualización: histograma corregido
 print("7. Creando un histograma de edades...")
 
 ggplot(datos_a, aes(x = Edad)) +
@@ -86,5 +92,5 @@ ggplot(datos_a, aes(x = Edad)) +
   labs(title = "Distribución de Edad", x = "Edad", y = "Frecuencia") +
   theme_minimal()
 
-print("Gráfico generado con éxito.")
+print("Grafico generado con exito.")
 
